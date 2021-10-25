@@ -29,6 +29,7 @@ Partial Class TambahPasien
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnCari = New System.Windows.Forms.Button()
         Me.txtNoRM = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtNoReg = New System.Windows.Forms.TextBox()
@@ -59,7 +60,6 @@ Partial Class TambahPasien
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.txtKelas = New System.Windows.Forms.TextBox()
-        Me.btnCari = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -166,6 +166,20 @@ Partial Class TambahPasien
         Me.Label4.Size = New System.Drawing.Size(94, 13)
         Me.Label4.TabIndex = 25
         Me.Label4.Text = "No. RM"
+        '
+        'btnCari
+        '
+        Me.btnCari.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnCari.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnCari.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnCari.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCari.Image = CType(resources.GetObject("btnCari.Image"), System.Drawing.Image)
+        Me.btnCari.Location = New System.Drawing.Point(402, 3)
+        Me.btnCari.Name = "btnCari"
+        Me.btnCari.Size = New System.Drawing.Size(34, 24)
+        Me.btnCari.TabIndex = 50
+        Me.btnCari.UseVisualStyleBackColor = False
         '
         'txtNoRM
         '
@@ -518,20 +532,6 @@ Partial Class TambahPasien
         Me.txtKelas.Size = New System.Drawing.Size(97, 20)
         Me.txtKelas.TabIndex = 59
         Me.txtKelas.Visible = False
-        '
-        'btnCari
-        '
-        Me.btnCari.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnCari.BackColor = System.Drawing.Color.DodgerBlue
-        Me.btnCari.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnCari.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCari.Image = CType(resources.GetObject("btnCari.Image"), System.Drawing.Image)
-        Me.btnCari.Location = New System.Drawing.Point(402, 3)
-        Me.btnCari.Name = "btnCari"
-        Me.btnCari.Size = New System.Drawing.Size(34, 24)
-        Me.btnCari.TabIndex = 50
-        Me.btnCari.UseVisualStyleBackColor = False
         '
         'TambahPasien
         '

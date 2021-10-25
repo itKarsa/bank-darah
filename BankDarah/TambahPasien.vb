@@ -156,7 +156,16 @@ Public Class TambahPasien
         If txtInst.Text.Contains("IGD") Then
             queryUnit = "SELECT kdUnit, unit, namapetugasMedis FROM vw_pasienrawatjalan WHERE noDaftar = '" & txtNoReg.Text & "'"
         ElseIf txtInst.Text.Contains("RAWAT INAP") Then
-            queryUnit = "SELECT kdRawatInap, rawatInap, namapetugasMedis FROM vw_pasienrawatinap WHERE noDaftar = '" & txtNoReg.Text & "'"
+            queryUnit = "SELECT ri.kdRawatInap,
+	                            ri.rawatInap,
+	                            dpjp.namapetugasMedis 
+                           FROM t_registrasirawatinap ri,
+	                            t_registrasi reg,
+	                            t_tenagamedis2 dpjp 
+                          WHERE reg.noDaftar = ri.noDaftar AND
+	                            reg.kdTenagaMedis = dpjp.kdPetugasMedis AND
+	                            reg.noDaftar = '" & txtNoReg.Text & "'
+                       ORDER BY ri.tglMasukRawatInap DESC"
         ElseIf txtInst.Text.Contains("RAWAT JALAN") Then
             queryUnit = "SELECT kdUnit, unit, namapetugasMedis FROM vw_pasienrawatjalan WHERE noDaftar = '" & txtNoReg.Text & "'"
         End If
@@ -189,7 +198,10 @@ Public Class TambahPasien
             txtKelas.Text = "KELAS I"
         ElseIf txtInst.Text.Contains("RAWAT INAP") Then
             Dim query As String = ""
-            query = "SELECT kelas FROM vw_pasienrawatinap WHERE noDaftar = '" & txtNoReg.Text & "'"
+            query = "SELECT COALESCE(kelas,'-') 
+                       FROM t_registrasirawatinap
+                      WHERE noDaftar = '" & txtNoReg.Text & "'
+                        AND tglKeluarRawatInap IS NULL"
             cmd = New MySqlCommand(query, conn)
             da = New MySqlDataAdapter(cmd)
 

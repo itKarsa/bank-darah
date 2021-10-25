@@ -407,9 +407,10 @@ Public Class Form1
         Dim cmd As MySqlCommand
         Dim dr As MySqlDataReader
 
-        query = "SELECT kelas 
-                   FROM vw_pasienrawatinap
-                  WHERE noDaftar = '" & txtNoReg.Text & "'"
+        query = "SELECT COALESCE(kelas,'-') 
+                   FROM t_registrasirawatinap
+                  WHERE noDaftar = '" & txtNoReg.Text & "'
+                    AND tglKeluarRawatInap IS NULL"
 
         cmd = New MySqlCommand(query, conn)
         dr = cmd.ExecuteReader
@@ -517,7 +518,7 @@ Public Class Form1
         alamat = DataGridView1.Rows(e.RowIndex).Cells(6).Value
         noPermin = DataGridView1.Rows(e.RowIndex).Cells(7).Value
         tglReg = DataGridView1.Rows(e.RowIndex).Cells(8).Value
-        dokter1 = DataGridView1.Rows(e.RowIndex).Cells(11).Value
+        dokter1 = DataGridView1.Rows(e.RowIndex).Cells(11).Value.ToString
         dokter2 = DataGridView1.Rows(e.RowIndex).Cells(13).Value.ToString
         ketKlinis = DataGridView1.Rows(e.RowIndex).Cells(14).Value.ToString
         noTindak = DataGridView1.Rows(e.RowIndex).Cells(15).Value.ToString
